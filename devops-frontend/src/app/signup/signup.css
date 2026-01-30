@@ -1,0 +1,125 @@
+
+.signup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f8f9fa;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.signup-container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.signup-container h2 {
+    font-family: Arial, sans-serif;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    font-family: Arial, sans-serif;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-family: Arial, sans-serif;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+    font-size: 14px;
+}
+
+.input-icon-left {
+    position: relative;
+}
+
+.input-icon-left input {
+    width: 450px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    padding-left: 40px;
+}
+
+.input-icon-left i.fa-solid:first-child {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    pointer-events: none;
+}
+
+.input-icon-left i.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #1274e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #214c76;
+}
+.error-input {
+    border: 2px solid red !important;
+}
+
+.error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+.login-text {
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.login-text a {
+    font-family: Arial, sans-serif;
+    color: #1274e5;
+    text-decoration: none;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}

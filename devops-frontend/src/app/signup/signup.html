@@ -1,0 +1,117 @@
+<div class="signup-wrapper">
+  <div class="signup-container">
+    <h2>Create Account</h2>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+      
+      <!-- Username -->
+      <div class="form-group">
+        <label>Username</label>
+        <div class="input-icon-left">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            [(ngModel)]="user.username"
+            name="username"
+            placeholder="Enter your username"
+            required
+            #usernameCtrl="ngModel"
+            [class.error-input]="usernameCtrl.invalid && (usernameCtrl.touched || userForm.submitted)"
+          >
+        </div>
+        <small class="error-text" *ngIf="usernameCtrl.invalid && (usernameCtrl.touched || userForm.submitted)">
+          Username is required
+        </small>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label>Email Address</label>
+        <div class="input-icon-left">
+          <i class="fa-solid fa-envelope"></i>
+          <input
+            type="email"
+            [(ngModel)]="user.email"
+            name="email"
+            placeholder="name@example.com"
+            required
+            #emailCtrl="ngModel"
+            [class.error-input]="emailCtrl.invalid && (emailCtrl.touched || userForm.submitted)"
+          >
+        </div>
+        <small class="error-text" *ngIf="emailCtrl.invalid && (emailCtrl.touched || userForm.submitted)">
+          Email is required
+        </small>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-icon-left">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            [(ngModel)]="user.password"
+            name="password"
+            placeholder="At least 8 characters, letters & numbers"
+            required
+            minlength="8"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$"
+            #passCtrl="ngModel"
+            [class.error-input]="passCtrl.invalid && (passCtrl.touched || userForm.submitted)"
+          >
+          <!-- Eye icon -->
+          <i *ngIf="user.password.length > 0"
+             class="fa-solid eye-icon"
+             [class.fa-eye]="!showPassword"
+             [class.fa-eye-slash]="showPassword"
+             (click)="togglePassword()"></i>
+        </div>
+        <small class="error-text" *ngIf="passCtrl.invalid && (passCtrl.touched || userForm.submitted)">
+          Password is required
+        </small>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label>Confirm password</label>
+        <div class="input-icon-left">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm your password"
+            required
+            #cpCtrl="ngModel"
+            [class.error-input]="
+              (cpCtrl.touched || userForm.submitted) &&
+              (confirmPassword === '' || user.password !== confirmPassword)
+            "
+          >
+          <!-- Eye icon -->
+          <i *ngIf="confirmPassword.length > 0"
+             class="fa-solid eye-icon"
+             [class.fa-eye]="!showConfirmPassword"
+             [class.fa-eye-slash]="showConfirmPassword"
+             (click)="toggleConfirmPassword()"></i>
+        </div>
+        <small class="error-text"
+               *ngIf="
+                 (cpCtrl.touched || userForm.submitted) &&
+                 (confirmPassword === '' || user.password !== confirmPassword)
+               ">
+          Passwords do not match
+        </small>
+      </div>
+
+      <button type="submit" class="signup-btn">
+        <i class="fa-solid fa-paper-plane"></i> Sign Up
+      </button>
+
+      <div class="login-text">
+        Don't have an account? <a href="/login">Login</a>
+      </div>
+
+    </form>
+  </div>
+</div>
